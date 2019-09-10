@@ -23,12 +23,39 @@ public class WelcomeControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void main() throws Exception {
+    public void toIndexTest() throws Exception
+    {
+        ResultActions resultActions = mockMvc.perform(get("/index"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("index"))
+                .andExpect(model().attribute("message", equalTo("Rafael baitola")))
+                .andExpect(content().string(containsString("Oie, Rafael baitola")));
+
+        MvcResult mvcResult = resultActions.andReturn();
+        ModelAndView mv = mvcResult.getModelAndView();
+    }
+
+    @Test
+    public void toIndexRootTest() throws Exception
+    {
         ResultActions resultActions = mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
+                .andExpect(view().name("index"))
+                .andExpect(model().attribute("message", equalTo("Rafael viadinho")))
+                .andExpect(content().string(containsString("Oie, Rafael viadinho")));
+
+        MvcResult mvcResult = resultActions.andReturn();
+        ModelAndView mv = mvcResult.getModelAndView();
+    }
+
+    @Test
+    public void toWelcomeTest() throws Exception
+    {
+        ResultActions resultActions = mockMvc.perform(get("/welcome"))
+                .andExpect(status().isOk())
                 .andExpect(view().name("welcome"))
-                .andExpect(model().attribute("message", equalTo("Dear Reader")))
-                .andExpect(content().string(containsString("Hello, Dear Reader")));
+                .andExpect(model().attribute("message", equalTo("Rafael são paulino")))
+                .andExpect(content().string(containsString("Hello, Rafael são paulino")));
 
         MvcResult mvcResult = resultActions.andReturn();
         ModelAndView mv = mvcResult.getModelAndView();

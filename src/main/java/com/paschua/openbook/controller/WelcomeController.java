@@ -8,12 +8,35 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class WelcomeController {
 
+    @Value("${index.message}")
+    private String indexMessage;
+
+    @Value("${indexroot.message}")
+    private String indexRootMessage;
+
     @Value("${welcome.message}")
-    private String message;
+    private String welcomeMessage;
+
+    @GetMapping("/index")
+    public String toIndex(Model model)
+    {
+        model.addAttribute("message", indexMessage);
+
+        return "index";
+    }
 
     @GetMapping("/")
-    public String main(Model model) {
-        model.addAttribute("message", message);
+    public String toIndexRoot(Model model)
+    {
+        model.addAttribute("message", indexRootMessage);
+
+        return "index";
+    }
+
+    @GetMapping("/welcome")
+    public String toWelcome(Model model)
+    {
+        model.addAttribute("message", welcomeMessage);
 
         return "welcome";
     }

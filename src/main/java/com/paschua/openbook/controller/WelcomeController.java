@@ -26,16 +26,21 @@ public class WelcomeController {
     }
 
     @GetMapping("/")
-    public String toIndexRoot(Model model)
-    {
+    public String toIndex(Model model) {
+        model.addAttribute("message", indexMessage);
+
+        return "index";
+    }
+
+    @GetMapping("/index")
+    public String toIndexRoot(Model model) {
         model.addAttribute("message", indexRootMessage);
 
         return "index";
     }
 
     @GetMapping("/welcome")
-    public String toWelcome(Model model)
-    {
+    public String toWelcome(Model model) {
         model.addAttribute("message", welcomeMessage);
 
         return "welcome";

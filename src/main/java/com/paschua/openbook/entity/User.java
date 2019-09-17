@@ -59,11 +59,11 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
+        return "User{\n" +
+                "\tid=" + id + ",\n" +
+                "\temail='" + email + '\'' + ",\n" +
+                "\tpassword='" + password + '\'' + ",\n" +
+                "\tname='" + name + '\'' + "\n" +
                 '}';
     }
 }

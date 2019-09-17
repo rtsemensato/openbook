@@ -1,25 +1,29 @@
 package com.paschua.openbook;
 
+import com.paschua.openbook.entity.User;
+import com.paschua.openbook.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 //implements CommandLineRunner to populate the database
-public class OpenBookApp {
+public class OpenBookApp implements CommandLineRunner {
 
     private static final Logger log = LoggerFactory.getLogger(OpenBookApp.class);
 
-//    @Autowired
-//    private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     public static void main(String[] args) {
         log.info("Start Application...");
         SpringApplication.run(OpenBookApp.class, args);
     }
 
-    /*public void run(String... args) {
+    public void run(String... args) {
 
         log.info("Start Application...");
 
@@ -41,5 +45,5 @@ public class OpenBookApp {
 
         log.info("Find By Name...");
         userRepository.findByName("Rafael Matia").forEach(x -> System.out.println(x));
-    }*/
+    }
 }

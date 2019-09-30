@@ -73,10 +73,15 @@
             <artifactId>h2</artifactId>
         </dependency>
         <!-- PostgreSQL -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-        </dependency>
+        </dependency>-->
+        <!-- MySQL -->
+        <!--<dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>-->
         <!-- test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
